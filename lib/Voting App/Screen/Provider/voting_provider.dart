@@ -1,5 +1,4 @@
 import 'dart:async';
-
 import 'package:flutter/material.dart';
 import 'package:voting_app/Voting%20App/Model/model.dart';
 
@@ -10,23 +9,23 @@ class VotingProvider with ChangeNotifier {
     Candidate(id: "3", name: "Candidate 3"),
     Candidate(id: "4", name: "Candidate 4"),
   ];
-  String? selectedCandidate;
+  String? selectedCandidateId;
 
   List<Candidate> get candidates => _candidates;
 
   void vote(String candidateId) {
-    _candidates = _candidates.map((candidates) {
-      if (candidates.id == candidateId) {
-        candidates.votes += 1;
+    _candidates = _candidates.map((candidate) {
+      if (candidate.id == candidateId) {
+        candidate.votes += 1;
       }
       return candidate;
     }).toList();
 
     selectedCandidateId = candidateId;
     notifyListeners();
-    Timer(const Duration(seconds: 1), ({
+    Timer(const Duration(seconds: 1), () {
       selectedCandidateId = null;
       notifyListeners();
-    }))
+    });
   }
 }
