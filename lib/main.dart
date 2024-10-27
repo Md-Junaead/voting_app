@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:voting_app/voting_screen.dart';
+import 'package:voting_app/Voting%20App/Screen/voting_screen.dart';
 
 void main() {
   runApp(const MyApp());
