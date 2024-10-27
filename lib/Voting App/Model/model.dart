@@ -1,14 +1,11 @@
-import 'package:flutter/material.dart'
-
-Class Candidate{
+class Candidate {
   final String id;
   final String name;
   int votes;
-  
 
   Candidate({
     required this.id,
     required this.name,
-    this.vote = 0,
+    this.votes = 0,
   });
 }
