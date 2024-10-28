@@ -25,12 +25,33 @@ class ResultScreen extends StatelessWidget {
                 final candidate = votingProvider.candidates[index];
                 final isWinner = winners.contains(candidate);
                 return ListTile(
-                  title: Text(candidate.name),
-                  trailing: Text("Votes:${candidate.votes}"),
+                  title: Text(
+                    candidate.name,
+                    style: TextStyle(
+                      fontWeight:
+                          isWinner ? FontWeight.bold : FontWeight.normal,
+                      color: isWinner ? Colors.green : Colors.black,
+                    ),
+                  ),
+                  trailing: Text("Votes: ${candidate.votes}"),
+                  subtitle: isWinner
+                      ? Text(isTie ? "Tie for Winner" : "Winner")
+                      : null,
                 );
               },
             ),
           ),
+          Padding(
+            padding: const EdgeInsets.all(16),
+            child: Text(
+              isTie ? "It's a tie!" : "Winner",
+              style: TextStyle(
+                  fontSize: 30,
+                  fontWeight: FontWeight.bold,
+                  color: isTie ? Colors.red : Colors.green),
+            ),
+          ),
+          const Spacer(),
         ],
       ),
     );
