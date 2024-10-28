@@ -28,4 +28,20 @@ class VotingProvider with ChangeNotifier {
       notifyListeners();
     });
   }
+
+  List<Candidate> get winners {
+    if (_candidates.isEmpty) return [];
+
+    int highestVotes =
+        _candidates.map((c) => c.votes).reduce((a, b) => a > b ? a : b);
+
+    if (highestVotes == 0) return [];
+
+    List<Candidate> topCandidates =
+        _candidates.where((c) => c.votes == highestVotes).toList();
+
+    return topCandidates;
+  }
+
+  bool get isTie => winners.length > 1;
 }

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:voting_app/Voting%20App/Provider/voting_provider.dart';
+import 'package:voting_app/Voting%20App/Screen/result_screen.dart';
 
 class VotingScreen extends StatelessWidget {
   const VotingScreen({super.key});
@@ -48,7 +49,7 @@ class VotingScreen extends StatelessWidget {
               Navigator.push(
                 context,
                 MaterialPageRoute(
-                  builder: (context) => ResultScreen(),
+                  builder: (context) => const ResultScreen(),
                 ),
               );
             },
