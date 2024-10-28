@@ -11,7 +11,7 @@ class VotingScreen extends StatelessWidget {
     return Scaffold(
       backgroundColor: Colors.blue[100],
       appBar: AppBar(
-        title: const Text('Vote For a Candidate'),
+        title: const Text('Vote For a Candidate 2'),
         backgroundColor: Colors.blue[100],
       ),
       body: Column(
@@ -25,6 +25,15 @@ class VotingScreen extends StatelessWidget {
                     votingProvider.selectedCandidateId = candidate.id;
                 return ListTile(
                   title: Text(candidate.name),
+                  trailing: ElevatedButton(
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: isVote ? Colors.green : Colors.white,
+                    ),
+                    onPressed: () {
+                      votingProvider.vote(candidate.id);
+                    },
+                    child: Text('Vote'),
+                  ),
                 );
               },
             ),
@@ -34,3 +43,4 @@ class VotingScreen extends StatelessWidget {
     );
   }
 }
+//11:24
