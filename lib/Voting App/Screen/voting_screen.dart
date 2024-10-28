@@ -22,7 +22,7 @@ class VotingScreen extends StatelessWidget {
               itemBuilder: (context, index) {
                 final candidate = votingProvider.candidates[index];
                 final isVote =
-                    votingProvider.selectedCandidateId = candidate.id;
+                    votingProvider.selectedCandidateId == candidate.id;
                 return ListTile(
                   title: Text(candidate.name),
                   trailing: ElevatedButton(
@@ -32,7 +32,12 @@ class VotingScreen extends StatelessWidget {
                     onPressed: () {
                       votingProvider.vote(candidate.id);
                     },
-                    child: Text('Vote'),
+                    child: Text(
+                      'Vote',
+                      style: TextStyle(
+                        color: isVote ? Colors.white : Colors.black,
+                      ),
+                    ),
                   ),
                 );
               },
