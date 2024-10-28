@@ -43,6 +43,19 @@ class VotingScreen extends StatelessWidget {
               },
             ),
           ),
+          ElevatedButton(
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => ResultScreen(),
+                ),
+              );
+            },
+            child: const Text("View Result"),
+          ),
+          const Spacer(),
+          const Spacer(),
         ],
       ),
     );
